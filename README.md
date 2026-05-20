@@ -43,7 +43,7 @@ The frontend is built using React.js with Vite for fast development and optimize
 ### Clone the Repository
 
 ```bash
-git clone <your-repository-link>
+git clone https://github.com/Adarsh0278/Style-Zone-Ecommerce.git
 ```
 
 ### Install Dependencies
