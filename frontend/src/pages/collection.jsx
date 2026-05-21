@@ -1,9 +1,9 @@
 import React from 'react'
 
-function collection() {
+function Collection() {
   return (
     <div>collection</div>
   )
 }
 
-export default collection
+export default Collection
