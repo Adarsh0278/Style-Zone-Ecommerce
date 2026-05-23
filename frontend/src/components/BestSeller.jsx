@@ -8,9 +8,12 @@ function BestSeller() {
     const { productsItems } = React.useContext(ShopContext);
     const [bestSellerProducts, setBestSellerProducts] = React.useState([]);
 
+
     useEffect(() => {
-      setBestSellerProducts(productsItems.slice(12, 16));
+      const bestSellers = productsItems.filter(product => product.bestseller);
+      setBestSellerProducts(bestSellers.slice(0, 4));
     }, [productsItems]);
+    
 
   return (
     <div className='my-10'>
@@ -22,8 +25,8 @@ function BestSeller() {
         {
           bestSellerProducts.map((product, index) => (
             <ProductItem key={index}
-            id={product.id}
-            title={product.title} 
+            id={product._id}
+            title={product.name} 
             price={product.price} 
             image={product.image} />
           ))
