@@ -11,6 +11,7 @@ import Orders from './pages/Orders'
 import PlaceOrder from './pages/PlaceOrder'
 import Collection from './pages/Collection'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -27,8 +28,8 @@ function App() {
         <Route path='/orders' element={<Orders />} />
         <Route path='/place-order' element={<PlaceOrder />} />
         <Route path='/collection' element={<Collection />} />
-
       </Routes>
+      <Footer />
     </div>
   )
 }
