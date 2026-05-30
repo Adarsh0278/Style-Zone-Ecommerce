@@ -9,7 +9,7 @@ import ProductItem from "../components/ProductItem";
 
 function Collection() {
 
-  const {productsItems} = useContext(ShopContext);
+  const { productsItems, searchTerm } = useContext(ShopContext);
   const [filteredProducts, setFilteredProducts] = React.useState([]);
   const [selectedCategories, setSelectedCategories] = React.useState([]);
   const [selectedTypes, setSelectedTypes] = React.useState([]);
@@ -24,9 +24,14 @@ function Collection() {
       products = products.filter(p => selectedCategories.includes(p.category));
     }
 
-    // Apply type filter
+    // Apply search filter
+    if (searchTerm.trim() !== '') {
+      products = products.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    }
+
+    // Apply type/sub-category filter
     if (selectedTypes.length > 0) {
-      products = products.filter(p => selectedTypes.includes(p.type));
+      products = products.filter(p => selectedTypes.includes(p.subCategory));
     }
 
     // Apply sorting
@@ -37,7 +42,7 @@ function Collection() {
     }
 
     setFilteredProducts(products);
-  }, [productsItems, selectedCategories, selectedTypes, sortBy]);
+  }, [productsItems, selectedCategories, selectedTypes, sortBy, searchTerm]);
 
   const toggleCategory = (category) => {
     setSelectedCategories(prev =>

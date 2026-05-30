@@ -1,24 +1,22 @@
-import React from 'react';
-import { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 import productsItems from '../assets/productsItems';
-import useState from 'react';   
 
 export const ShopContext = createContext();
 
 const ShopProvider = (props) => {
-
-    const currency = "$ "; // Dollar symbol
+    const currency = "$ ";
     const deliveryFee = 5.99;
-    const [searcthTerm, setSearchTerm] = React.useState(""); // State for search term
-    const [searchResults, setSearchResults] = React.useState(true);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searchResults, setSearchResults] = useState(false);
+
     const value = {
         productsItems,
         currency,
         deliveryFee,
-        searcthTerm,
+        searchTerm,
         setSearchTerm,
         searchResults,
-        setSearchResults
+        setSearchResults,
     };
 
     return (

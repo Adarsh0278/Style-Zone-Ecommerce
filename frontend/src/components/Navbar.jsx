@@ -5,13 +5,16 @@ import { FiShoppingCart } from "react-icons/fi";
 import { RiMenu3Fill } from "react-icons/ri";
 import { NavLink, Link } from "react-router-dom";
 import { assets } from "../assets/assets";
+import { useContext } from 'react';
+import { ShopContext } from '../context/ShopContext';
 
 function Navbar() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { setSearchResults } = useContext(ShopContext);
 
   const navLinks = [
-    { name: "HOME", path: "/" },
+    { name: "HOME", path: "/" }, 
     { name: "COLLECTION", path: "/collection" },
     { name: "ABOUT", path: "/about" },
     { name: "CONTACT", path: "/contact" },
@@ -61,7 +64,7 @@ function Navbar() {
         <div className='flex items-center gap-6 text-gray-700'>
 
           {/* Search */}
-          <IoSearch className='text-2xl cursor-pointer hover:text-black transition' />
+          <IoSearch onClick={() => setSearchResults(true)} className='text-2xl cursor-pointer hover:text-black transition' />
 
           {/* Profile Dropdown */}
           <div className='group relative'>
