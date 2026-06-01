@@ -6,7 +6,7 @@ export const ShopContext = createContext();
 const ShopProvider = (props) => {
     const currency = "$ ";
     const deliveryFee = 5.99;
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState(false);
 
     const value = {

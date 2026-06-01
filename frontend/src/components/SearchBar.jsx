@@ -10,13 +10,15 @@ const SearchBar = () => {
     searchResults,
     setSearchResults,
   } = useContext(ShopContext);
+
+  const handleKeyDown = (e) =>{
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  }
   
   const location = useLocation();
   const navigate = useNavigate();
-
-  // Keep search UI controlled by `searchResults`. When user performs a search
-  // from a page that doesn't support filtering, navigate to `/products` to
-  // show results there.
   const handleSearch = () => {
     if (!location.pathname.includes('collection') && !location.pathname.includes('products')) {
       navigate('/products');
@@ -26,7 +28,7 @@ const SearchBar = () => {
 
   return searchResults ? (
     <div className="flex justify-center px-4 py-6">
-      <div className="w-full max-w-3xl bg-white/90 backdrop-blur-md shadow-xl rounded-2xl p-4 border border-gray-200">
+      <div className="w-full max-w-3xl bg-white/90 backdrop-blur-md  rounded-sm p-4 border border-gray-200">
         
         <div className="flex items-center gap-3">
           
@@ -39,6 +41,7 @@ const SearchBar = () => {
               placeholder="Search products..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleKeyDown}
               className="w-full bg-transparent outline-none ml-3 text-gray-700 placeholder-gray-400"
             />
           </div>
