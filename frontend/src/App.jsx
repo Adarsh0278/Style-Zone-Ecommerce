@@ -13,6 +13,8 @@ import Collection from './pages/Collection'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
+import NotFound from './pages/NotFound'
+
 
 function App() {
   return (
@@ -23,13 +25,15 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='/products' element={<Products />} />
+        <Route path='/products/:productId' element={<Products />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/orders' element={<Orders />} />
         <Route path='/place-order' element={<PlaceOrder />} />
         <Route path='/collection' element={<Collection />} />
+
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

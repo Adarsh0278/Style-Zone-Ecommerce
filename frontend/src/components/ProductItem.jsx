@@ -9,7 +9,7 @@ function ProductItem({ id, title, price, image }) {
   return (
 
     <Link
-      to={`/product/${id}`}
+      to={`/products/${id}`}
       className="text-gray-700 cursor-pointer group"
     >
 
