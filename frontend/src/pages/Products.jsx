@@ -5,13 +5,14 @@ import { useParams } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext'
 
 function Products() {
-  const { productsItems } = useContext(ShopContext)
   const { productId } = useParams()
 
   const [productData, setProductData] = useState(null)
   const [mainImage, setMainImage] = useState('')
   const [selectedSize, setSelectedSize] = useState('')
   const [activeTab, setActiveTab] = useState('description')
+  const {productsItems, addItemToCart} = useContext(ShopContext)
+  const { addToCart } = useContext(ShopContext)
 
   useEffect(() => {
     if (productsItems && productsItems.length > 0) {
@@ -113,7 +114,9 @@ function Products() {
           </div>
 
           {/* Add to Cart Button */}
-          <button className="bg-black text-white px-8 py-3 text-sm font-medium active:bg-gray-700 mt-8 transition-colors">
+          <button className="bg-black text-white px-8 py-3 text-sm font-medium active:bg-gray-700 mt-8 transition-colors"
+          onClick={() => addToCart(productData._id, selectedSize)}
+          >
             ADD TO CART
           </button>
 

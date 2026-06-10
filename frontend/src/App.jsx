@@ -14,11 +14,15 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
 import NotFound from './pages/NotFound'
+import ScrollToTop from './components/ScrollToTop'
+import Test from './pages/Test'
 
 
 function App() {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      <Test />
+      <ScrollToTop />
       <Navbar />
       <SearchBar />
       <Routes>

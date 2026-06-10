@@ -22,7 +22,7 @@ function LatestCollection() {
         {
           latestProducts.map((product, index) => (
             <ProductItem key={index}
-            id={product.id}
+            id={product._id}
             title={product.title} 
             price={product.price} 
             image={product.image} />

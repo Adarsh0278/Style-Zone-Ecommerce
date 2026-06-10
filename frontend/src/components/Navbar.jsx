@@ -11,7 +11,8 @@ import { ShopContext } from '../context/ShopContext';
 function Navbar() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { setSearchResults } = useContext(ShopContext);
+  const { setSearchResults, getCartCount } = useContext(ShopContext);
+
 
   const navLinks = [
     { name: "HOME", path: "/" }, 
@@ -105,7 +106,7 @@ function Navbar() {
             <FiShoppingCart className='text-2xl cursor-pointer hover:text-black transition' />
 
             <span className='absolute -top-2 -right-2 bg-black text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center'>
-              2
+              {getCartCount()}
             </span>
 
           </Link>
